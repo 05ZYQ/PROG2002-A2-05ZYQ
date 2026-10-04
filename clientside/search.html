@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Charity Events | Kindred City Charity</title>
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+
+  <!-- Navigation menu (identical on every page) -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html">Kindred City Charity</a>
+      <nav>
+        <ul class="menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="search.html" class="current">Search Events</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <h1 class="section-title">Search charity events</h1>
+    <p class="lede">
+      Combine any of the three criteria below. An event only needs to match the
+      criteria you fill in, so you can search by a single filter or by all of them
+      at once.
+    </p>
+
+    <!-- Filter form: date, location and category -->
+    <form id="search-form" class="filters" novalidate>
+      <div class="filter-grid">
+        <div class="field">
+          <label for="date-input">From date</label>
+          <input type="date" id="date-input" name="date">
+          <span class="hint">Shows events on or after this day.</span>
+        </div>
+
+        <div class="field">
+          <label for="location-input">Location</label>
+          <input type="text" id="location-input" name="location"
+                 placeholder="e.g. Westport" maxlength="60">
+          <span class="hint">Matches the suburb or venue name.</span>
+        </div>
+
+        <div class="field">
+          <label for="category-input">Event category</label>
+          <select id="category-input" name="category">
+            <option value="">All categories</option>
+          </select>
+          <span class="hint">Loaded from the categories API.</span>
+        </div>
+      </div>
+
+      <div class="buttons">
+        <button type="submit">Search events</button>
+        <button type="button" id="clear-button" class="secondary">Clear filters</button>
+      </div>
+    </form>
+
+    <!-- Feedback messages managed with basic DOM manipulation -->
+    <p id="form-message" class="message error hidden"></p>
+    <p id="result-summary" class="message info hidden"></p>
+
+    <ul id="result-list" class="event-list"></ul>
+
+    <p class="footer">
+      Kindred City Charity &middot; search results are retrieved live from
+      <code>GET /api/events/filter</code>.
+    </p>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/search.js"></script>
+</body>
+</html>

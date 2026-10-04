@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Details | Kindred City Charity</title>
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+
+  <!-- Navigation menu (identical on every page) -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html">Kindred City Charity</a>
+      <nav>
+        <ul class="menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="search.html">Search Events</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+
+    <p id="loading-message" class="message info">Loading event details...</p>
+    <p id="error-message" class="message error hidden"></p>
+
+    <!-- Everything below is filled in by event.js once the API responds -->
+    <div id="event-content" class="hidden">
+
+      <section class="detail-head">
+        <p class="event-meta">
+          <span id="status-tag" class="tag tag-upcoming">Upcoming</span>
+          <span id="category-text"></span>
+        </p>
+        <h1 id="event-name"></h1>
+        <p class="lede" id="event-summary"></p>
+      </section>
+
+      <div class="detail-grid">
+        <section class="panel">
+          <h2>About this event</h2>
+          <p id="event-description"></p>
+
+          <h2 style="margin-top:24px;">Fundraising goal and progress</h2>
+          <div class="progress-bar">
+            <div id="progress-fill" class="progress-fill"></div>
+          </div>
+          <p class="progress-figures">
+            <span id="raised-figure"></span>
+            <span id="goal-figure"></span>
+          </p>
+          <p id="progress-note" class="lede"></p>
+        </section>
+
+        <aside class="panel">
+          <h2>Event information</h2>
+          <ul class="facts">
+            <li><span class="label">Date</span><span class="value" id="fact-date"></span></li>
+            <li><span class="label">Start time</span><span class="value" id="fact-time"></span></li>
+            <li><span class="label">Venue</span><span class="value" id="fact-venue"></span></li>
+            <li><span class="label">Location</span><span class="value" id="fact-location"></span></li>
+            <li><span class="label">Category</span><span class="value" id="fact-category"></span></li>
+            <li><span class="label">Hosted by</span><span class="value" id="fact-org"></span></li>
+            <li><span class="label">Ticket price</span><span class="value price" id="fact-price"></span></li>
+          </ul>
+
+          <div class="buttons" style="margin-top:18px;">
+            <button type="button" id="register-button">Register</button>
+          </div>
+
+          <p class="lede" style="margin-top:16px;">
+            Questions about this event? Contact
+            <span id="org-contact"></span>.
+          </p>
+        </aside>
+      </div>
+
+      <p style="margin-top:22px;">
+        <a href="index.html">&larr; Back to the event list</a> &nbsp;|&nbsp;
+        <a href="search.html">Search for another event</a>
+      </p>
+
+      <p class="footer" id="footer-note"></p>
+    </div>
+  </main>
+
+  <!-- "Under construction" dialog shown by the Register button -->
+  <div id="modal-backdrop" class="modal-backdrop hidden">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <h2 id="modal-title">Registration</h2>
+      <p>This feature is currently under construction.</p>
+      <div class="buttons">
+        <button type="button" id="modal-close" class="secondary">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/event.js"></script>
+</body>
+</html>

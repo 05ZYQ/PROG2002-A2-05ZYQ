@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kindred City Charity | Upcoming Charity Events</title>
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+
+  <!-- Navigation menu (identical on every page) -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html">Kindred City Charity</a>
+      <nav>
+        <ul class="menu">
+          <li><a href="index.html" class="current">Home</a></li>
+          <li><a href="search.html">Search Events</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+
+    <!-- Static organisation information (hard-coded content) -->
+    <section class="about">
+      <h1>Local causes, supported by local people</h1>
+      <p class="mission">
+        Kindred City Charity works with neighbours, schools and small businesses to
+        fund food relief, youth mentoring and crisis accommodation across the greater
+        city area. Every event listed below is run by a registered charitable
+        organisation and every dollar raised is reported back to the community.
+      </p>
+      <p class="contact-line">
+        <span>hello@kindredcity.org.au</span>
+        <span>(02) 8810 2244</span>
+        <span>Westport Community Hub, 12 Kindred Street</span>
+      </p>
+    </section>
+
+    <!-- Dynamic event listing loaded from the API -->
+    <section>
+      <hr class="rule">
+      <h2 class="section-title">Upcoming charity events</h2>
+      <p class="lede">
+        Active events that are still to come. Past events are hidden from this list,
+        and any event suspended for a policy breach is removed automatically.
+      </p>
+
+      <p id="status-message" class="message info">Loading upcoming events...</p>
+      <p id="error-message" class="message error hidden"></p>
+
+      <ul id="event-list" class="event-list"></ul>
+      <p id="empty-message" class="message info hidden">
+        There are no upcoming events at the moment. Please check back soon.
+      </p>
+    </section>
+
+    <p class="footer">
+      Kindred City Charity &middot; ABN 00 000 000 000 &middot; PROG2002 Web Development II,
+      Assignment 2 demonstration website.
+    </p>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>

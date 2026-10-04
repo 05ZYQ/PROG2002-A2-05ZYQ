@@ -1,0 +1,14 @@
+{
+  "name": "kindred-city-charity-api",
+  "version": "1.0.0",
+  "description": "RESTful API for the Kindred City Charity events website (PROG2002 A2)",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node --watch app.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "mysql2": "^3.11.0"
+  }
+}
