@@ -359,9 +359,7 @@ button.secondary:hover {
 }
 
 .hidden {
-  /* !important is required because display rules declared later in this
-     file (e.g. .modal-backdrop) would otherwise win the cascade. */
-  display: none !important;
+  display: none;
 }
 
 /* ---------------- event detail ---------------- */

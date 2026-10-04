@@ -13,6 +13,7 @@
  * ---------------------------------------------------------------
  */
 
+const path = require("path");
 const express = require("express");
 const { runQuery } = require("./event_db");
 
@@ -23,6 +24,24 @@ const PORT = process.env.PORT || 3030;
 // Middleware
 // ---------------------------------------------------------------
 app.use(express.json());
+
+// Allow the client-side pages to call the API even when they are
+// opened from a different origin (e.g. VS Code Live Server on :5500).
+// Assessment 2 only exposes read-only GET endpoints, so a permissive
+// method list is sufficient here.
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET, OPTIONS");
+  res.header("Access-Control-Allow-Headers", "Content-Type");
+  if (req.method === "OPTIONS") {
+    return res.sendStatus(204);
+  }
+  next();
+});
+
+// Serve the client-side website so the whole project can be opened
+// from a single address: http://localhost:3030
+app.use(express.static(path.join(__dirname, "..", "clientside")));
 
 // Simple request logger - helps demonstrate the request/response flow.
 app.use((req, res, next) => {
