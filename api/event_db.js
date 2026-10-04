@@ -16,11 +16,8 @@ const pool = mysql.createPool({
   host: "localhost",
   port: 3306,
   user: "root",
-  password: "123456",      // <-- change to your MySQL root password
+  password: "",            // <-- change to your MySQL root password
   database: "charityevents_db",
-  // Return DATE/DATETIME columns as plain strings so the client always
-  // receives "YYYY-MM-DD" instead of a UTC-shifted JavaScript Date.
-  dateStrings: true,
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
